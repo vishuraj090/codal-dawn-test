@@ -1,0 +1,51 @@
+{% style %}
+  .breadcrumb-wrapper {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .breadcrumb {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-item a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 100;
+  }
+
+  .breadcrumb-item::after {
+    content: '>';
+    margin: 0 0.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-item:last-child::after {
+    content: '';
+    margin: 0;
+  }
+{% endstyle %}
+<nav class="breadcrumb-wrapper" aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ routes.root_url }}">Home</a></li>
+
+    {% if collection %}
+      <li class="breadcrumb-item">
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      </li>
+    {% endif %}
+
+    <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+  </ol>
+</nav>

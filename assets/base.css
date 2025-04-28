@@ -75,7 +75,15 @@
 }
 
 /* base */
-
+@font-face {
+  font-family: "myraid";
+  src: url('{{ "MyriadPro-Bold.woff2" | asset_url }}') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: "myraid" !important;
+}
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
